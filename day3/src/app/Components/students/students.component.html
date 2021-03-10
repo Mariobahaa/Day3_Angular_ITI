@@ -1,0 +1,15 @@
+<h1>Students List</h1>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Age</th>
+  </thead>
+  <tbody>
+    <!--Struc. Directive-->
+    <tr *ngFor="let s of ulist">
+      <td>{{s.name}}</td>
+      <!-- <td *ngIf="s.age>18">{{s.age}}</td> -->
+      <td >{{s.age}}</td>
+    </tr>
+  </tbody>
+</table>

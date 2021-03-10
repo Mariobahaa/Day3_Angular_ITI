@@ -1,0 +1,11 @@
+<div>
+    <input type = "text" placeholder ="name" [(ngModel)]="name"/>
+    <input type = "number" placeholder ="age" [(ngModel)]="age" />
+    <button (click)="send()" *ngIf = "age>18 && age < 150 && age!= null && age != undefined else notreal">Done</button>
+    <ng-template #notreal >
+        <div style="color: red; width: 10%; margin: auto; background-color: cadetblue;">
+          Not a valid age
+        </div>
+      </ng-template>
+
+</div>
