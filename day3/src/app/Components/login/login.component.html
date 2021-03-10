@@ -1,11 +1,18 @@
 <div>
-    <input type = "text" placeholder ="name" [(ngModel)]="name"/>
-    <input type = "number" placeholder ="age" [(ngModel)]="age" />
-    <button (click)="send()" *ngIf = "age>18 && age < 150 && age!= null && age != undefined else notreal">Done</button>
-    <ng-template #notreal >
-        <div style="color: red; width: 10%; margin: auto; background-color: cadetblue;">
-          Not a valid age
-        </div>
-      </ng-template>
-
+  <form [formGroup]="validation">
+    <input type = "text" placeholder ="name" [(ngModel)]="name" formControlName="name" class ="form-control" id="name"/>
+    
+      <div style="color: red; width: 10%; margin: auto; background-color: cadetblue;" *ngIf = "!nameValid">
+        Not a valid name
+      </div>
+       <input type = "number" placeholder ="age" [(ngModel)]="age" class ="form-control" formControlName="age" id="age"/>
+       <div style="color: red; width: 10%; margin: auto; background-color: cadetblue;" *ngIf = "!ageValid">
+        Not a valid age
+      </div>
+    <button (click)="send()" >Done</button>
+      
+   
+    </form>
 </div>
+
+<!--button (click)="send()" *ngIf = "age>18 && age < 150 && age!= null && age != undefined else notreal">Done</button-->

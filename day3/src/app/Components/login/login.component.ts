@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 
 
 @Component({
@@ -12,7 +13,20 @@ export class LoginComponent implements OnInit {
   age:number;
   user;
 
+  validation = new FormGroup({
+    name: new FormControl("Mario",[Validators.maxLength(18), Validators.minLength(6), Validators.nullValidator]),
+    age: new FormControl(22, [Validators.min(19), Validators.max(150), Validators.nullValidator])
+  });
+
   @Output() event = new EventEmitter();
+
+  get nameValid(){
+    return this.validation.controls.name.valid;
+  }
+
+  get ageValid(){
+    return this.validation.controls.age.valid;
+  }
 
   send(){
     this.user = {name:this.name, age:this.age}
