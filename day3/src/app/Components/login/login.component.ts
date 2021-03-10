@@ -28,8 +28,8 @@ export class LoginComponent implements OnInit {
     return this.validation.controls.age.valid;
   }
 
-  send(){
-    this.user = {name:this.name, age:this.age}
+  send(nm, a){
+    this.user = {name:nm.value, age:a.value}
     this.event.emit(this.user);
 
   }
